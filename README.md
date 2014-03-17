@@ -16,7 +16,7 @@ TIVWP-DM Development Manager is a plugin for WordPress developers. Its main feat
 * Prompts to automatically install and activate popular development plugins from the WordPress repository
 * Allows to activate / deactivate those plugins in bulk - with a single admin menu click or automatically, according to the wp-config settings
 
-For complete information, please see [TIVWP-DM Development Manager's GitHub repo](https://github.com/tivnet/tivwp-dm).
+For complete information, please see [TIVWP-DM Development Manager's GitHub repo](https://github.com/TIVWP/tivwp-dm).
 
 ## 3rd Party Software Used ##
 
@@ -38,9 +38,15 @@ Alternatively, see the guide to [Manually Installing Plugins](http://codex.wordp
 
 # Screenshots #
 
-1. Prompt to install the plugins
-2. Use admin menu to (de)activate all development plugins
-3. Automatic deactivation with the presence of `define( 'TIVWP_DM_AUTO', 'deactivate' );`
+## Prompt to install the plugins ##
+![](https://raw.github.com/TIVWP/tivwp-dm/master/assets/screenshot-1.png)
+
+## Use admin menu to (de)activate all development plugins ##
+![](https://raw.github.com/TIVWP/tivwp-dm/master/assets/screenshot-2.png)
+
+## Automatic deactivation ##
+![](https://raw.github.com/TIVWP/tivwp-dm/master/assets/screenshot-3.png)
+
 
 # Changelog #
 ```
