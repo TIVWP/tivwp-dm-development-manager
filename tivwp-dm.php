@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: TIVWP-DM Development Manager
- * Plugin URI: https://github.com/tivnet/tivwp-dm
+ * Plugin URI: https://github.com/TIVWP/tivwp-dm
  * Description: Install and manage development plugins
  * Text Domain: tivwp-dm
  * Domain Path: /languages/
