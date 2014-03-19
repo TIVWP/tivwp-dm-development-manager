@@ -2,10 +2,10 @@
 /**
  * Plugin Name: TIVWP-DM Development Manager
  * Plugin URI: https://github.com/TIVWP/tivwp-dm
- * Description: Install and manage development plugins
+ * Description: Install and manage development plugins. (Single-site only, no Network Activation).
  * Text Domain: tivwp-dm
  * Domain Path: /languages/
- * Version: 14.03.17
+ * Version: 14.03.19
  * Author: TIV.NET
  * Author URI: http://www.tiv.net
  * Network: false
@@ -41,9 +41,39 @@ if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 }
 
 /**
- * Launch the Controller
+ * Disable network activation on multisite.
+ * @param bool $network_wide
+ */
+function tivwp_dm_disable_network_activation( $network_wide ) {
+	if ( $network_wide ) {
+		$silent = true;
+		deactivate_plugins( plugin_basename( __FILE__ ), $silent, $network_wide );
+		wp_redirect( network_admin_url( 'plugins.php?deactivate=true' ) );
+		exit;
+	}
+}
+
+/**
+ * There should be no reason to use this plugin network-wide.
+ * However, if anyone wants that, there is a constant that allows:
+ * <code>
+ * define( 'TIVWP_DM_NETWORK_ACTIVATION_ALLOWED', true );
+ * </code>
+ */
+if ( ! ( defined( 'TIVWP_DM_NETWORK_ACTIVATION_ALLOWED' ) && TIVWP_DM_NETWORK_ACTIVATION_ALLOWED ) ) {
+	register_activation_hook( __FILE__, 'tivwp_dm_disable_network_activation' );
+}
+
+
+/**
+ * Launch the Controller only after plugins_loaded, so we can do necessary validation
+ * @see TIVWP_DM_Controller::construct
  */
 require_once 'includes/class-tivwp-dm-controller.php';
-new TIVWP_DM_Controller();
+add_action( 'plugins_loaded', array(
+		'TIVWP_DM_Controller',
+		'construct'
+	)
+);
 
 # --- EOF

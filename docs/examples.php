@@ -16,6 +16,11 @@ true && exit;
 define( 'TIVWP_DM_AUTO', 'activate' );
 //define( 'TIVWP_DM_AUTO', 'deactivate' );
 
+/**
+ * Network Activation is disabled by default.
+ * To enable, place this line to the wp-config.php file:
+ */
+define( 'TIVWP_DM_NETWORK_ACTIVATION_ALLOWED', true );
 
 /**
  * Example of modifying TIVWP_DM development plugins list

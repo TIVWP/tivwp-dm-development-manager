@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TIVWP Development Manager 14.03.16\n"
-"POT-Creation-Date: 2014-03-17 11:09-0500\n"
-"PO-Revision-Date: 2014-03-17 11:09-0500\n"
+"POT-Creation-Date: 2014-03-19 18:36-0500\n"
+"PO-Revision-Date: 2014-03-19 18:36-0500\n"
 "Last-Translator: Gregory Karpinsky <gregory@tiv.net>\n"
 "Language-Team: Gregory Karpinsky <gregory@tiv.net>\n"
 "Language: en_US\n"
@@ -20,21 +20,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: includes\n"
 
-#: includes/class-tivwp-dm-controller.php:21
-msgid "Sorry, this version has not been tested in a multisite environment."
+#: includes/class-tivwp-dm-controller.php:27
+msgid "Must call in of after the \"plugins_loaded\" action."
 msgstr ""
 
-#: includes/class-tivwp-dm-controller.php:129
+#: includes/class-tivwp-dm-controller.php:140
 #, php-format
 msgid "Unknown action \"%1$s\" specified for %2$s"
 msgstr ""
 
-#: includes/class-tivwp-dm-controller.php:136
+#: includes/class-tivwp-dm-controller.php:147
 #, php-format
 msgid "The unknown action has been replaced with \"%s\""
 msgstr ""
 
-#: includes/class-tivwp-dm-controller.php:153
+#: includes/class-tivwp-dm-controller.php:164
 #, php-format
 msgid "Automatic action performed: \"%s\""
 msgstr ""

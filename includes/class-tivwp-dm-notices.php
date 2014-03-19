@@ -7,6 +7,8 @@
  */
 class TIVWP_DM_Notices {
 
+	const NOTICE_LABEL = 'TIVWP-DM';
+
 	const WITH_TRIGGER_ERROR    = true;
 	const WITHOUT_TRIGGER_ERROR = false;
 
@@ -23,26 +25,41 @@ class TIVWP_DM_Notices {
 	public static function add( $notice, $do_trigger_error = self::WITHOUT_TRIGGER_ERROR ) {
 
 		/**
-		 * Add new notice to the stack
+		 * If we are in the admin area, and the current user is capable to understand what we are talking about...
 		 */
-		self::$_notices[] = $notice;
+		if ( is_admin() && current_user_can( TIVWP_DM::MIN_CAPABILITY ) ) {
 
-		/**
-		 * If that was the first notice, and we are in the admin area,
-		 * then hook our display() function to the admin_notices action
-		 */
-		if ( sizeof( self::$_notices ) === 1 and is_admin() ) {
-			add_action( 'admin_notices', array(
-				'TIVWP_DM_Notices',
-				'display'
-			) );
+			/**
+			 * Add new notice to the stack
+			 */
+			self::$_notices[] = $notice;
+
+			/**
+			 * If that was the first notice, then hook our function
+			 * @see display()
+			 * to the admin_notices action
+			 */
+			if ( sizeof( self::$_notices ) === 1 ) {
+				add_action( 'admin_notices', array(
+					'TIVWP_DM_Notices',
+					'display'
+				) );
+			}
 		}
 
 		/**
-		 * ... and trigger regular error immediately, whether we are in admin area or not, if requested
+		 * ... and log the error immediately, whether we are in admin area or not, if requested
 		 */
 		if ( $do_trigger_error === self::WITH_TRIGGER_ERROR ) {
-			trigger_error( $notice );
+
+			$notice = self::NOTICE_LABEL . ':' . $notice;
+
+			if ( WP_DEBUG && WP_DEBUG_DISPLAY ) {
+				trigger_error( $notice ); // out loud
+			}
+			else {
+				error_log( $notice ); // silently
+			}
 		}
 	}
 
@@ -53,12 +70,12 @@ class TIVWP_DM_Notices {
 	 */
 	public static function display() {
 
-		echo '<div class="error">';
-		echo '<p>TIVWP_DM:</p>';
+		echo '<div class="error"><p>';
+		echo self::NOTICE_LABEL . ':';
 		foreach ( self::$_notices as $notice ) {
-			echo '<p>' . esc_html( $notice ) . '</p>';
+			echo '<br/>' . esc_html( $notice );
 		}
-		echo '</div>';
+		echo '</p></div>';
 
 	}
 

@@ -12,19 +12,28 @@ class TIVWP_DM_Controller {
 	/**
 	 * Constructor
 	 */
-	public function __construct() {
+	public static function construct() {
 
 		/**
-		 * @todo Work on it in the next release
+		 * The auto-switch should always work
 		 */
-		if ( is_multisite() ) {
-			TIVWP_DM_Notices::add( __( 'Sorry, this version has not been tested in a multisite environment.',
-					'tivwp-dm' )
-			);
+		self::_load_plugin_list();
+		self::_setup_automatic_switch();
+
+		/**
+		 * The rest relies on user privileges, and therefore must wait until necessary WP functions are loaded
+		 */
+		if ( ! did_action( 'plugins_loaded' ) ) {
+			_doing_it_wrong( __METHOD__, __( 'Must call in of after the "plugins_loaded" action.' ), '14.03.19' );
 			return;
 		}
 
-		self::_load_plugin_list();
+		/**
+		 * Low-level users won't see anything
+		 */
+		if ( ! current_user_can( TIVWP_DM::MIN_CAPABILITY ) ) {
+			return;
+		}
 
 		/**
 		 * The main actions happen in the admin area
@@ -34,11 +43,6 @@ class TIVWP_DM_Controller {
 			self::_setup_plugin_composer();
 			self::_setup_admin_interface();
 		}
-
-		/**
-		 * The auto-switch should work in both admin and front
-		 */
-		self::_setup_automatic_switch();
 
 	}
 

@@ -4,7 +4,7 @@ Contributors: tivnet
 Tags: debug, debugging, development, developer, plugins
 Requires at least: 3.8
 Tested up to: 3.9-beta1
-Stable tag: 14.03.17
+Stable tag: trunk
 License: GPLv2 or later
 ```
 Install and manage development plugins
@@ -36,6 +36,17 @@ You can install this plugin directly from your WordPress dashboard:
 
 Alternatively, see the guide to [Manually Installing Plugins](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
 
+# Frequently Asked Questions #
+
+## Can I use this plugin on a WordPress Multisite? ##
+
+Yes, but you should activate the plugin on each site separately. Network Activation is disabled by default.
+To enable, place
+```php
+define( 'TIVWP_DM_NETWORK_ACTIVATION_ALLOWED', true );
+```
+in the wp-config.php file.
+
 # Screenshots #
 
 ## Prompt to install the plugins ##
@@ -50,6 +61,12 @@ Alternatively, see the guide to [Manually Installing Plugins](http://codex.wordp
 
 # Changelog #
 ```
+= 14.03.19 =
+
+* Better validation of capabilities
+* Multisite activation is allowed
+* Network Activation is disabled by default
+
 = 14.03.17 =
 
 * Initial release

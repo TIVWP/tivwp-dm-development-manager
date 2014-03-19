@@ -25,10 +25,11 @@ mysql -e "DROP DATABASE IF EXISTS ${DB_NAME};" --user="${DB_USER}" --password="$
 install_wp() {
 	mkdir -p ${WP_CORE_DIR}
 
+	local ARCHIVE_NAME
 	if [ ${WP_VERSION} == 'latest' ]; then
-		local ARCHIVE_NAME='latest'
+		ARCHIVE_NAME='latest'
 	else
-		local ARCHIVE_NAME="wordpress-$WP_VERSION"
+		ARCHIVE_NAME="wordpress-$WP_VERSION"
 	fi
 
 	wget -nv -O ${DIR_WP_DEVELOP}/wordpress.tar.gz http://wordpress.org/${ARCHIVE_NAME}.tar.gz
@@ -40,10 +41,11 @@ install_wp() {
 
 install_test_suite() {
 	# portable in-place argument for both GNU sed and Mac OSX sed
+	local ioption
 	if [[ $(uname -s) == 'Darwin' ]]; then
-		local ioption='-i ""'
+		ioption='-i ""'
 	else
-		local ioption='-i'
+		ioption='-i'
 	fi
 
 	# set up testing suite
