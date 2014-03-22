@@ -3,7 +3,7 @@
 Contributors: tivnet
 Tags: debug, debugging, development, developer, plugins
 Requires at least: 3.8
-Tested up to: 3.9-beta1
+Tested up to: 3.9-beta2
 Stable tag: trunk
 License: GPLv2 or later
 ```

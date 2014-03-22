@@ -2,7 +2,7 @@
 Contributors: tivnet
 Tags: debug, debugging, development, developer, plugins
 Requires at least: 3.8
-Tested up to: 3.9-beta1
+Tested up to: 3.9-beta2
 Stable tag: trunk
 License: GPLv2 or later
 
@@ -10,12 +10,14 @@ Install and manage development plugins
 
 == Description ==
 
-TIVWP-DM Development Manager is a plugin for WordPress developers. Its main features are:
+**NOTE:** The current version of the TIVWP-DM plugin was released mostly for educational purposes.
+
+I appreciate your comments and ideas. Please see the [TIVWP-DM Development Manager's GitHub repo](https://github.com/TIVWP/tivwp-dm) for **additional files showing how to setup Travis-CI/PHPUnit for automatic testing**.
+
+**TIVWP-DM Development Manager** is a plugin for WordPress developers. Its main features are:
 
 * Prompts to automatically install and activate popular development plugins from the WordPress repository
 * Allows to activate / deactivate those plugins in bulk - with a single admin menu click or automatically, according to the wp-config settings
-
-For complete information, please see [TIVWP-DM Development Manager's GitHub repo](https://github.com/tivnet/tivwp-dm).
 
 = 3rd Party Software Used =
 
