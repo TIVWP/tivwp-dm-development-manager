@@ -5,14 +5,14 @@
  * Description: Install and manage development plugins. (Single-site only, no Network Activation).
  * Text Domain: tivwp-dm
  * Domain Path: /languages/
- * Version: 14.03.19
+ * Version: 14.03.25
  * Author: TIV.NET
  * Author URI: http://www.tiv.net
  * Network: false
  * License: GPL2
  */
 
-/*  Copyright 2014 Gregory Karpinsky (email : gregory@tiv.net)
+/*  Copyright 2014 Gregory Karpinsky (tiv.net)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as

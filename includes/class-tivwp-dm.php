@@ -25,6 +25,14 @@ class TIVWP_DM {
 	private static $development_plugins = array();
 
 	/**
+	 * Accessor method used in unit tests
+	 * @return array
+	 */
+	public static function get_development_plugins(){
+		return self::$development_plugins;
+	}
+
+	/**
 	 * @var array $_default_development_plugins Default list of plugins. Use 'tivwp_dm_plugin_list' to modify.
 	 */
 	private static $_default_development_plugins = array(

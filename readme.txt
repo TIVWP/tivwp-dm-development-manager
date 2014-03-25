@@ -54,6 +54,9 @@ in the wp-config.php file.
 
 == Changelog ==
 
+= 14.03.25 =
+* Upgraded TGM-Plugin-Activation to 2.4.0
+
 = 14.03.19 =
 * Better validation of capabilities
 * Multisite activation is allowed
